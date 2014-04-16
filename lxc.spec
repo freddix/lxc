@@ -1,11 +1,11 @@
 Summary:	LXC - Userspace tools for the Linux kernel containers
 Name:		lxc
-Version:	1.0.0
+Version:	1.0.3
 Release:	1
 License:	LGPL
 Group:		Applications/System
 Source0:	http://linuxcontainers.org/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	87a9d168a6e55326303cce3b2cb7f82e
+# Source0-md5:	55873b1411a606397309aa6c4c4263b3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glibc-devel
@@ -93,6 +93,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/lxc-unshare
 %attr(755,root,root) %{_bindir}/lxc-usernsexec
 %attr(755,root,root) %{_bindir}/lxc-wait
+%attr(755,root,root) %{_sbindir}/init.lxc
+
 
 %dir %{_sysconfdir}/lxc
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/lxc/default.conf
@@ -109,6 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_datadir}/lxc/hooks/squid-deb-proxy-client
 %attr(755,root,root) %{_datadir}/lxc/hooks/ubuntu-cloud-prep
 %attr(755,root,root) %{_datadir}/lxc/templates/lxc-*
+%attr(755,root,root) %{_datadir}/lxc/*.py
 
 %dir %{_libdir}/lua/lxc
 %attr(755,root,root) %{_libdir}/lua/lxc/core.so
@@ -121,7 +124,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/lxc
 %dir %{_libdir}/lxc/rootfs
 %{_libdir}/lxc/rootfs/README
-%attr(755,root,root) %{_libdir}/lxc/lxc-init
 %attr(755,root,root) %{_libdir}/lxc/lxc-monitord
 %attr(755,root,root) %{_libdir}/lxc/lxc-user-nic
 
